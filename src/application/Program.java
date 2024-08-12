@@ -10,7 +10,7 @@ public class Program {
 
 		VendedorDao vendedorDao = DaoFactory.createVendedorDao();
 		Vendedor vendedor = vendedorDao.findById(2);
-		
+		System.out.println("---- TESTE FIND BY ID ----\n");
 		System.out.println(vendedor);
 	}
 
