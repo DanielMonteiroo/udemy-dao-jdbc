@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.VendedorDao;
@@ -12,6 +13,8 @@ public class Program {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
+		
 		//Listar por ID
 		VendedorDao vendedorDao = DaoFactory.createVendedorDao();
 		Vendedor vendedor = vendedorDao.findById(2);
@@ -38,7 +41,7 @@ public class Program {
 		
 		//Inserção de novos dados
 		System.out.println("\n---- TESTE FIND ALL----\n");
-		Vendedor newVendedor = new Vendedor(null,"Socorro", "socorro@gmail.com", new Date(), 3975.0, departamento);
+		Vendedor newVendedor = new Vendedor(null,"Joana", "joaninha@gmail.com", new Date(), 3105.0, departamento);
 		vendedorDao.insert(newVendedor);
 		System.out.println("Dados inseridos com sucesso! ID = "+newVendedor.getId());
 		
@@ -46,11 +49,19 @@ public class Program {
 		//Atualização de dados
 	    System.out.println("\n---- TESTE UPDATE DATA----\n");
 	    newVendedor = vendedorDao.findById(1);
-	    newVendedor.setName("Silvio Santos");
-	    newVendedor.setEmail("silviosbt@gmail.com");
-	    newVendedor.setSalarioBase(10500.0);
+	    newVendedor.setName("Domingas Araujo");
+	    newVendedor.setEmail("domingasam@gmail.com");
+	    newVendedor.setSalarioBase(15500.0);
         vendedorDao.update(newVendedor);
         System.out.println("Dados Atualizados com sucesso! ID = " + newVendedor.getId());
+        
+        //Deletar por ID
+        System.out.println("\n---- TESTE DELETE POR ID----\n");
+        System.out.println("Digite um ID: ");
+        int id = sc.nextInt();
+        vendedorDao.deleteById(id);
+        System.out.println("Usuario deletado com sucesso!");
+    
 	}
 
 }
