@@ -43,7 +43,14 @@ public class Program {
 		System.out.println("Dados inseridos com sucesso! ID = "+newVendedor.getId());
 		
 		
-		
+		//Atualização de dados
+	    System.out.println("\n---- TESTE UPDATE DATA----\n");
+	    newVendedor = vendedorDao.findById(1);
+	    newVendedor.setName("Silvio Santos");
+	    newVendedor.setEmail("silviosbt@gmail.com");
+	    newVendedor.setSalarioBase(10500.0);
+        vendedorDao.update(newVendedor);
+        System.out.println("Dados Atualizados com sucesso! ID = " + newVendedor.getId());
 	}
 
 }
