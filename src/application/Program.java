@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -33,6 +34,16 @@ public class Program {
 		for(Vendedor todos: listaTodos) {
 			System.out.println(todos);
 		}
+		
+		
+		//Inserção de novos dados
+		System.out.println("\n---- TESTE FIND ALL----\n");
+		Vendedor newVendedor = new Vendedor(null,"Socorro", "socorro@gmail.com", new Date(), 3975.0, departamento);
+		vendedorDao.insert(newVendedor);
+		System.out.println("Dados inseridos com sucesso! ID = "+newVendedor.getId());
+		
+		
+		
 	}
 
 }
